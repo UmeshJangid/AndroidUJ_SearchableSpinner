@@ -4,18 +4,18 @@ ext {
     PUBLISH_GROUP_ID = 'com.bitfitprivatelimited.androiduj_searchablespinner'
     PUBLISH_ARTIFACT_ID = 'androiduj_searchablespinner'
     PUBLISH_VERSION = '1.0'
+    // ValidateTor Library Info
 
 }
 android {
-    compileSdkVersion 28
+    compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.libVersionCode
+        versionName rootProject.ext.libVersionName
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
 
     buildTypes {
@@ -25,14 +25,18 @@ android {
         }
     }
 
+    buildToolsVersion '27.0.3'
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
     implementation 'com.android.support:appcompat-v7:28.0.0-alpha3'
-    testImplementation 'junit:junit:4.12'
+    testImplementation "com.android.support:appcompat-v7:$supportLibVersion"
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'junit:junit:4.12'
 }
-apply from: 'https://raw.githubusercontent.com/blundell/release-android-library/master/android-release-aar.gradle'
+apply from: './scripts/bintrayConfig.gradle'

@@ -12,6 +12,8 @@ buildscript {
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
     }
 }
 
@@ -25,3 +27,25 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext {
+    // Project
+    targetSdkVersion = 28
+    minSdkVersion = 16
+    compileSdkVersion = targetSdkVersion
+    buildToolsVersion = '27.0.2'
+    supportLibVersion = '27.0.2'
+    constraintLayoutVersion = "1.0.2"
+    junitVersion = "4.12"
+    libVersionCode = 1
+    libVersionName = '1.0.0'
+    testRunnerVersion = "1.0.1"
+    espressoCoreVersion = "3.0.1"
+    libPomUrl = 'https://github.com/UmeshJangid/AndroidUJ_SearchableSpinner'
+    libGithubRepo = 'UmeshJangid/AndroidUJ_SearchableSpinner'
+    libModuleName = 'AndroidUJ_SearchableSpinner'
+    libModuleDesc = 'Android library for searchable spinner.'
+    libBintrayName = 'AndroidUJ_SearchableSpinner'
+}
+
+
